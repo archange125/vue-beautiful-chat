@@ -12,6 +12,7 @@
       :open="openChat"
       :participants="participants"
       :showEmoji="true"
+      :showSuggestions="false"
       :showFile="true"
       :showTypingIndicator="showTypingIndicator"
       :titleImageUrl="titleImageUrl"
@@ -42,7 +43,7 @@ export default {
         'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png',
       messageList: messageHistory,
       newMessagesCount: 0,
-      isChatOpen: false,
+      isChatOpen: true,
       showTypingIndicator: '',
       colors: null,
       availableColors,

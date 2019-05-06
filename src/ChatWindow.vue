@@ -14,6 +14,7 @@
       v-if="!showUserList"
       :showEmoji="showEmoji"
       :onSubmit="onUserInputSubmit"
+      :showSuggestions="showSuggestions"
       :suggestions="getSuggestions()"
       :showFile="showFile"
       :placeholder="placeholder"
@@ -23,12 +24,12 @@
 </template>
 
 <script>
-import Header from './Header.vue'
-import MessageList from './MessageList.vue'
-import UserInput from './UserInput.vue'
-import UserList from './UserList.vue'
+  import Header from './Header.vue'
+  import MessageList from './MessageList.vue'
+  import UserInput from './UserInput.vue'
+  import UserList from './UserList.vue'
 
-export default {
+  export default {
   components: {
     Header,
     MessageList,
@@ -74,7 +75,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: 'Write a reply'
+      default: 'Laisser un message...'
     },
     showTypingIndicator: {
       type: String,
@@ -91,6 +92,10 @@ export default {
     messageStyling: {
       type: Boolean,
       required: true
+    },
+    showSuggestions: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -100,9 +105,7 @@ export default {
   },
   computed: {
     messages() {
-      let messages = this.messageList
-
-      return messages
+      return this.messageList
     }
   },
   methods: {
