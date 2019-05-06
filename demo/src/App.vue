@@ -1,9 +1,5 @@
 <template>
   <div :style="{background: backgroundColor}">
-    <Header
-      :chosenColor="chosenColor"
-      :colors="colors"
-    />
     <beautiful-chat
       :alwaysScrollToBottom="alwaysScrollToBottom"
       :close="closeChat"
@@ -20,68 +16,7 @@
       :showTypingIndicator="showTypingIndicator"
       :titleImageUrl="titleImageUrl"
       @onType="handleOnType"
-    />
-    <p class="text-center toggle">
-      <a
-        :style="{color: linkColor}"
-        @click.prevent="openChat()"
-        href="#"
-        v-if="!isChatOpen"
-      >Open the chat window</a>
-      <a
-        :style="{color: linkColor}"
-        @click.prevent="closeChat()"
-        href="#"
-        v-else
-      >Close the chat window</a>
-    </p>
-    <p class="text-center colors">
-      <a
-        :style="{background: availableColors.blue.launcher.bg}"
-        @click.prevent="setColor('blue')"
-        href="#"
-      >Blue</a>
-      <a
-        :style="{background: availableColors.red.launcher.bg}"
-        @click.prevent="setColor('red')"
-        href="#"
-      >Red</a>
-      <a
-        :style="{background: availableColors.green.launcher.bg}"
-        @click.prevent="setColor('green')"
-        href="#"
-      >Green</a>
-      <a
-        :style="{background: availableColors.dark.launcher.bg}"
-        @click.prevent="setColor('dark')"
-        href="#"
-      >Dark</a>
-    </p>
-    <v-dialog/>
-    <p class="text-center messageStyling">
-      <label>Message styling enabled?
-        <input
-          @change="messageStylingToggled"
-          checked
-          type="checkbox"
-        >
-      </label>
-      <a
-        @click.prevent="showStylingInfo()"
-        href="#"
-      >info</a>
-    </p>
-    <TestArea
-      :chosenColor="chosenColor"
-      :colors="colors"
-      :messageStyling="messageStyling"
-      :onMessage="sendMessage"
-      :onTyping="handleTyping"
-    />
-    <Footer
-      :chosenColor="chosenColor"
-      :colors="colors"
-    />
+    ></beautiful-chat>
   </div>
 </template>
 

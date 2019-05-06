@@ -1,16 +1,5 @@
 <template>
-  <div class="sc-chat-window" :class="{opened: isOpen, closed: !isOpen}">
-    <Header
-      :title="title"
-      :imageUrl="titleImageUrl"
-      :onClose="onClose"
-      :colors="colors"
-      @userList="handleUserListToggle"
-    />
-    <UserList 
-      v-if="showUserList"
-      :participants="participants"
-    />
+  <div class="sc-chat-window">
     <MessageList
       v-if="!showUserList"
       :messages="messages"
@@ -128,14 +117,10 @@ export default {
 </script>
 <style scoped>
 .sc-chat-window {
-  width: 370px;
+  width: 100%;
   height: calc(100% - 120px);
   max-height: 590px;
-  position: fixed;
-  right: 25px;
-  bottom: 100px;
   box-sizing: border-box;
-  box-shadow: 0px 7px 40px 2px rgba(148, 149, 150, 0.1);
   background: white;
   display: flex;
   flex-direction: column;
